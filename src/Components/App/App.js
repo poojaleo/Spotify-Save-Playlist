@@ -10,15 +10,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      // searchResults: [{name : 'Tera Yaar hoon main', artist : 'Arijit Singh', album : 'Sonu ke Tittu ki Sweety', id : 1 }, 
-      //   {name : 'Dhaaga', artist : 'Nilotpal Bora', album : 'Aspirants', id : 2 }, 
-      //   {name : 'Ranjha', artist : 'Jasleen Royal', album : 'Shershaah', id : 3 }],
-
         searchResults: [],
         playlistName : "Have fun",
         playlistTracks: []
-        // playlistTracks : [{name : 'Kasoor', artist : 'Prateek Kuhad', album : 'kasoor', id : 4 }, 
-        // {name : 'Koi Kahe Kehta Rahe', artist : 'Shankar Mahadevan, Shaan, KK', album : 'Dil Chahta Hai', id : 5 }]
     }
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
@@ -82,26 +76,5 @@ class App extends React.Component {
     );
   }
 }
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         {/* <img src={logo} className="App-logo" alt="logo" /> */}
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
 
 export default App;
