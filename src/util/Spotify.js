@@ -6,6 +6,7 @@ const redirectURI = "https://spotifyplaylistsave.netlify.app/";
 
 const Spotify = {
     getAccessToken() {
+        console.log(accessToken);
         if(accessToken) {
             return accessToken;
         }
@@ -15,6 +16,8 @@ const Spotify = {
 
         const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
         const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
+
+        console.log(accessToken);
 
         if(accessTokenMatch && expiresInMatch) {
             accessToken = accessTokenMatch[1];
@@ -30,14 +33,22 @@ const Spotify = {
         
     },
 
-    async search(term) {
+     async search(term) {
         const accessToken = Spotify.getAccessToken();
-        const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
+        const jsonResponse = await fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
             headers: {
                 Authorization: `Bearer ${accessToken}`
             }
-        });
-        const jsonResponse = await response.json();
+        }).then(response => {
+            if(response.ok) {
+                return response.json();
+            }
+            throw new Error("request failed");
+        }, networkError => {
+            console.log(networkError.message());
+            console.log(accessToken);
+         });
+        /*const jsonResponse = await response.json().*/
         if (!jsonResponse.tracks) {
             return [];
         }
@@ -46,7 +57,7 @@ const Spotify = {
             name: track.name,
             artists: track.artists[0].name,
             album: track.album.name,
-            uri: track.uri
+            uris: track.uri
         }));
 
     }, 
