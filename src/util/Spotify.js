@@ -58,12 +58,6 @@ function fetchAccessToken( code ){
     callAuthorizationApi(body);
 }
 
-function handleRedirect() {
-    let code = getCode();
-    fetchAccessToken(code);
-    window.history.pushState("", "", redirectURI); // remove param from url
-}
-
 const Spotify = {
     async getAccessToken() {
 
