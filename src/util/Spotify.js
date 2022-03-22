@@ -4,13 +4,14 @@ let expiresIn;
 const clientId = "260ae191a73347388f0906143e73f889";
 const redirectURI = "https://spotifyplaylistsave.netlify.app/";
 
+
 const Spotify = {
     getAccessToken() {
         if(accessToken) {
             return accessToken;
         }
 
-        // Implicit grant flow
+        // Implicit grant flownpo
         // check for access token match
 
         const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
