@@ -2,7 +2,7 @@ let accessToken;
 let expiresIn;
 
 const clientId = "260ae191a73347388f0906143e73f889";
-const redirectURI = "https://spotifyplaylistsave.netlify.app/";
+const redirectURI = "http://localhost:3000/callback/";
 
 
 const Spotify = {
@@ -10,9 +10,6 @@ const Spotify = {
         if(accessToken) {
             return accessToken;
         }
-
-        // Implicit grant flownpo
-        // check for access token match
 
         const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
         const expiresInMatch = window.location.href.match(/expires_in=([^&]*)/);
@@ -32,7 +29,7 @@ const Spotify = {
     },
 
     async search(term) {
-        const accessToken = Spotify.getAccessToken();
+        const accessToken = await Spotify.getAccessToken();
         const response = await fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
             headers: {
                 Authorization: `Bearer ${accessToken}`
