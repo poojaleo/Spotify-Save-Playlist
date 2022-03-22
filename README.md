@@ -2,6 +2,9 @@
 A web application, built with React, that allows users to search the Spotify library, create a custom playlist, and then save the playlist to their Spotify accounts. 
 (Requires having a Spotify account for playlists to be saved.)
 
+## Jammming Application
+Check out the  [Jammming App](https://spotifyplaylistsave.netlify.app/) here.
+
 ### User Flow
 Spotify Login — the first time a user searches for a song, album, or artist, Spotify will ask them to log in or set up a new account. You will need to follow the steps in the Spotify Developer Guide to register your application.
 
@@ -15,4 +18,4 @@ Remove Song from Custom Playlist — users can remove a track from their playlis
 
 Change Playlist Title — users can change the title of their custom playlist.
 
-Save Playlist to Account — users can save their custom playlist by clicking a button called SAVE TO SPOTIFY.
+Save Playlist to Account — users can save their custom playlist by clicking on SAVE Button.
